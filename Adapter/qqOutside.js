@@ -10,10 +10,9 @@
  * @disable false
  * @priority 10000
  * @Copyright ©2023 Aming and Anmours. All rights reserved
- * Unauthorized copying of this file, via any medium is strictly prohibited
- * 2024/05/05 
- * 1.0.1 增加QQ加好友自动同意开关，申请入群自动同意开关，
- * 1.0.2 增加邀请入群同意
+ * Unauthorized copying of this file, via any medium is strictly prohibited 
+ * 1.0.1 增加QQ加好友自动同意开关
+ * 1.0.2 增加入群自动同意开关 没什么吊用的功能
  */
 
 /* 配置构造器 */
