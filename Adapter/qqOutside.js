@@ -3,7 +3,7 @@
  * @author Aming
  * @name qq
  * @origin Bncr团队
- * @version 1.0.1
+ * @version 1.0.2
  * @description 外置qq机器人适配器
  * @adapter true
  * @public false
@@ -11,7 +11,9 @@
  * @priority 10000
  * @Copyright ©2023 Aming and Anmours. All rights reserved
  * Unauthorized copying of this file, via any medium is strictly prohibited
- *  2024/05/05 V1.0.1 增加QQ加好友自动同意开关，他人加入Q群自动同意开关，仅对ws有用
+ * 2024/05/05 
+ * 1.0.1 增加QQ加好友自动同意开关，申请入群自动同意开关，
+ * 1.0.2 增加邀请入群同意
  */
 
 /* 配置构造器 */
@@ -64,16 +66,17 @@ async function ws(qq) {
           else return e.eventS.emit(e.uuid, '');
         }
       }
-      if (body.post_type === 'request' && body.request_type === 'group' && body.sub_type ===         'add' && ConfigDB.userConfig.autoAcceptGroupJoin) {
-          ws.send(
-          JSON.stringify({
-          action: 'set_group_add_request',
-          params: { 
-          flag: body.flag, 
-          sub_type:'add', 
-          approve: true 
-        },
-     }));
+      if (body.post_type === 'request' && body.request_type === 'group' && (body.sub_type ===           'add' || body.sub_type === 'invite') && ConfigDB.userConfig.autoAcceptGroupJoin) {
+            ws.send(
+            JSON.stringify({
+            action: 'set_group_add_request',
+            params: { 
+            flag: body.flag, 
+            sub_type:body.sub_type,  
+            approve: true 
+            },
+        })
+      );
      }
       if (body.post_type === 'request' && body.request_type === 'friend' && ConfigDB.userConfig.          autoAcceptFriend) {
             ws.send(
