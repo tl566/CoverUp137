@@ -22,7 +22,7 @@ const jsonSchema = BncrCreateSchema.object({
     .setTitle('http交互发送地址')
     .setDescription('如果是http模式，则需要设置 sendUrl，改地址为远端qq机器人的监听地址:端口n,无界接受地址为:http://bncrip:9090/api/bot/qqHttp')
     .setDefault('http://192.168.31.192:9696'),
-  autoAcceptFriend: BncrCreateSchema.boolean().setTitle('自动接受好友请求').setDescription('建议使用ws模式，如果开启，将会自动接受所有的好友请求').setDefault(false),
+  autoAcceptFriend: BncrCreateSchema.boolean().setTitle('自动接受好友请求').setDescription('建议使用ws模式，如果开启，将会自动接受好友请求').setDefault(false),
   autoAcceptGroupJoin: BncrCreateSchema.boolean().setTitle('自动同意加群申请').setDescription('建议使用ws模式，如果开启，将会自动同意他人加群申请，需要机器人为群管理员').setDefault(false),
 });
 
