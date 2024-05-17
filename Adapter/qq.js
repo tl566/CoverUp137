@@ -14,6 +14,7 @@
  * Unauthorized copying of this file, via any medium is strictly prohibited
  */
 
+
 /* 配置构造器 */
 const jsonSchema = BncrCreateSchema.object({
   enable: BncrCreateSchema.boolean().setTitle('是否开启适配器').setDescription('设置为关则不加载该适配器').setDefault(false),
@@ -217,7 +218,6 @@ async function http(qq) {
   });
 
   /**向/api/系统路由中添加路由 */
-  router.get('/api/bot/qqHttp', (req, res) => res.send({ msg: '这是Bncr 外置qq Api接口，你的get请求测试正常~，请用ws交互数据' }));
   router.post('/api/bot/qqHttp', async (req, res) => res.send({ msg: '这是Bncr 外置qq Api接口，你的post请求测试正常~，请用ws交互数据' }));
 
   /* 回复 */
